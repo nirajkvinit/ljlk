@@ -12,6 +12,8 @@ public class HiLo {
 		
 		String playAgain = "";
 		
+		
+		
 		// game loop		
 		do {
 		
@@ -21,11 +23,16 @@ public class HiLo {
 			
 			int guess = 0;
 			
+			// Number of tries to guess the correct number
+			int numOfTries = 0;
+			
 			while ( guess != theNumber ) {
 				System.out.println("Guess a number between 1 and 100: ");
 				
 				// get the user's guess
 				guess = scan.nextInt();
+				
+				numOfTries++;
 				
 				if (guess < theNumber) {
 					
@@ -38,8 +45,9 @@ public class HiLo {
 				} else {
 					
 					System.out.println(guess + " is correct! You win!");
+					System.out.println("It only took you " + numOfTries + " tries! Good Work!");
 					
-				}
+				}				
 				
 			} // end of while loop for guessing
 			
