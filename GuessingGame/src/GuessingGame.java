@@ -1,11 +1,11 @@
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import java.awt.Font;
 import javax.swing.JPanel;
+//import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -34,12 +34,10 @@ public class GuessingGame extends JFrame {
 			if (guess > theNumber) 
 			{
 				message = guess + " was too high. You have " + triesLeft + " tries left!";
-				//lblOutput.setText(message);
 			} 
 			else if (guess < theNumber)
 			{
 				message = guess + " was too low. You have " + triesLeft + " tries left!";
-				//lblOutput.setText(message);
 			}
 			else
 			{
@@ -124,7 +122,9 @@ public class GuessingGame extends JFrame {
 	public static void main(String[] args) {
 		
 		GuessingGame theGame = new GuessingGame();
+		
 		theGame.newGame();
+		
 		theGame.setSize(new Dimension(430, 330));
 		
 		theGame.setVisible(true);
