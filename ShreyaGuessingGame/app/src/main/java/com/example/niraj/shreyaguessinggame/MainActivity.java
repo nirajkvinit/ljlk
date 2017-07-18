@@ -19,7 +19,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtGuess;
     private Button btnGuess;
     private TextView lblOutput;
+    private TextView lblTriesLeft;
     private int theNumber;
+    private int triesLeft;
 
     public void checkGuess() {
         // Get the number the user entered
@@ -29,8 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
             int guess = Integer.parseInt(theirNumber);
 
+            triesLeft--;
+
             if (guess > theNumber) { // too high
                 message = guess + " was too high. Guess again.";
+
             }
             else if (guess < theNumber) { // too low
                 message = guess + " was too low. Guess again.";
@@ -39,7 +44,11 @@ public class MainActivity extends AppCompatActivity {
                 message = guess + " was the right number. You win! Play again!";
                 newGame();
             }
-
+            if (triesLeft <= 0) {
+                message = "You lost! Correct Number was "+theNumber+" Play again!";
+                newGame();
+            }
+            triesLeftFunct();
             lblOutput.setText(message);
         }
         catch(Exception ex) {
@@ -53,7 +62,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void newGame() {
+        triesLeft = 7;
         theNumber = (int) (Math.random() * 100 + 1);
+        triesLeftFunct();
+    }
+
+    private void triesLeftFunct() {
+        String message = "("+triesLeft+" tries left)";
+        lblTriesLeft.setText(message);
     }
 
     @Override
@@ -64,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         txtGuess = (EditText) findViewById(R.id.txtGuess);
         btnGuess = (Button) findViewById(R.id.btnGuess);
         lblOutput = (TextView) findViewById(R.id.lblOutput);
+        lblTriesLeft = (TextView) findViewById(R.id.lblTriesLeft);
 
         newGame();
 
