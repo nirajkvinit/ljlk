@@ -1,5 +1,5 @@
 # Shreya's Guessing Game
-- [ ] Count attempts and reset game at the end of 7 tries.
+- [x] Count attempts and reset game at the end of 7 tries.
 - [ ] Remove menu items (Settings)
 - [ ] Disable Orientation wherever applicable, or design for different orientation.
 - [ ] Give an icon
